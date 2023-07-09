@@ -1,7 +1,8 @@
 package com.practice.reverselevel.spring.web;
 
 
-import com.practice.reverselevel.spring.service.posts.PostService;
+
+import com.practice.reverselevel.spring.service.posts.PostsService;
 import com.practice.reverselevel.spring.web.dto.PostsResponseDto;
 import com.practice.reverselevel.spring.web.dto.PostsSaveRequestDto;
 import com.practice.reverselevel.spring.web.dto.PostsUpdateRequestDto;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class PostsApiController {
 
-    private final PostService postsService;
+    private final PostsService postsService;
 
     @PostMapping("/api/v1/posts")
     public Long save(@RequestBody PostsSaveRequestDto requestDto){
@@ -27,5 +28,11 @@ public class PostsApiController {
     @GetMapping("/api/v1/posts/{id}")
     public PostsResponseDto update(@PathVariable Long id){
         return postsService.findById(id);
+    }
+
+    @DeleteMapping("/api/v1/posts/{id}")
+    public Long delete(@PathVariable Long id){
+        postsService.delete(id);
+        return id;
     }
 }
