@@ -3,9 +3,7 @@ package com.practice.reverselevel.spring.web;
 import com.practice.reverselevel.spring.config.auth.LoginUser;
 import com.practice.reverselevel.spring.config.auth.dto.SessionUser;
 import com.practice.reverselevel.spring.service.posts.PostsService;
-import com.practice.reverselevel.spring.service.user.UserService;
 import com.practice.reverselevel.spring.web.dto.PostsResponseDto;
-import com.practice.reverselevel.spring.web.dto.UserResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,7 +31,6 @@ public class IndexController {
         }
         return "index";
     }
-
 
 
     @GetMapping("/posts/save")

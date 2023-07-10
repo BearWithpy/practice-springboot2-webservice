@@ -1,5 +1,5 @@
 var main = {
-    init : function () {
+    init: function () {
         var _this = this;
         $('#btn-save').on('click', function () {
             _this.save();
@@ -17,7 +17,7 @@ var main = {
             _this.switchRole();
         });
     },
-    switchRole : function () {
+    switchRole: function () {
         var email = $('#userEmail').val();
         console.log(email)
 
@@ -25,15 +25,15 @@ var main = {
             type: 'GET',
             url: '/role',
             dataType: 'json',
-            contentType:'application/json; charset=utf-8',
-        }).done(function() {
+            contentType: 'application/json; charset=utf-8',
+        }).done(function () {
             alert('User로 Role이 변경되었습니다. 다시 로그인 해주세요!');
             window.location.href = '/logout';
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });
     },
-    save : function () {
+    save: function () {
         var data = {
             title: $('#title').val(),
             author: $('#author').val(),
@@ -44,16 +44,16 @@ var main = {
             type: 'POST',
             url: '/api/v1/posts',
             dataType: 'json',
-            contentType:'application/json; charset=utf-8',
+            contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(data)
-        }).done(function() {
+        }).done(function () {
             alert('글이 등록되었습니다.');
             window.location.href = '/';
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });
     },
-    update : function () {
+    update: function () {
         var data = {
             title: $('#title').val(),
             content: $('#content').val()
@@ -63,26 +63,26 @@ var main = {
 
         $.ajax({
             type: 'PUT',
-            url: '/api/v1/posts/'+id,
+            url: '/api/v1/posts/' + id,
             dataType: 'json',
-            contentType:'application/json; charset=utf-8',
+            contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(data)
-        }).done(function() {
+        }).done(function () {
             alert('글이 수정되었습니다.');
             window.location.href = '/';
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });
     },
-    delete : function () {
+    delete: function () {
         var id = $('#id').val();
 
         $.ajax({
             type: 'DELETE',
-            url: '/api/v1/posts/'+id,
+            url: '/api/v1/posts/' + id,
             dataType: 'json',
-            contentType:'application/json; charset=utf-8'
-        }).done(function() {
+            contentType: 'application/json; charset=utf-8'
+        }).done(function () {
             alert('글이 삭제되었습니다.');
             window.location.href = '/';
         }).fail(function (error) {

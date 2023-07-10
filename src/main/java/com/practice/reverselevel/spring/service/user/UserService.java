@@ -1,14 +1,10 @@
 package com.practice.reverselevel.spring.service.user;
 
 
-import com.practice.reverselevel.spring.domain.posts.Posts;
 import com.practice.reverselevel.spring.domain.user.Role;
 import com.practice.reverselevel.spring.domain.user.User;
 import com.practice.reverselevel.spring.domain.user.UserRepository;
-import com.practice.reverselevel.spring.web.dto.PostsResponseDto;
-import com.practice.reverselevel.spring.web.dto.PostsUpdateRequestDto;
 import com.practice.reverselevel.spring.web.dto.UserResponseDto;
-import com.practice.reverselevel.spring.web.dto.UserRoleUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
