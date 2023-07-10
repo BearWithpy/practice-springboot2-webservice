@@ -1,4 +1,5 @@
 .idea
+application-oauth.yml
 
 # Project exclude paths
 /.gradle/### Gradle template
