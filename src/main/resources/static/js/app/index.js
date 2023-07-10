@@ -12,6 +12,26 @@ var main = {
         $('#btn-delete').on('click', function () {
             _this.delete();
         });
+
+        $('#btn-role-switch').on('click', function () {
+            _this.switchRole();
+        });
+    },
+    switchRole : function () {
+        var email = $('#userEmail').val();
+        console.log(email)
+
+        $.ajax({
+            type: 'GET',
+            url: '/role',
+            dataType: 'json',
+            contentType:'application/json; charset=utf-8',
+        }).done(function() {
+            alert('User로 Role이 변경되었습니다. 다시 로그인 해주세요!');
+            window.location.href = '/logout';
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
     },
     save : function () {
         var data = {

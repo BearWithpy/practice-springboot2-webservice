@@ -5,9 +5,12 @@
     <div class="row">
         <div class="col-md-6">
             <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
+            <br/><br/>
             {{#userName}}
-                Logged in as: <span id="user">{{userName}}</span>
+                Logged in as: <span id="user">{{userName}}</span> (email -> <span id="userEmail">{{userEmail}}</span>)
+                <br/><br/>
                 <a href="/logout" class="btn btn-info active" role="button">Logout</a>
+                <button type="button" class="btn btn-success" id="btn-role-switch">Role 변경</button>
             {{/userName}}
             {{^userName}}
                 <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>

@@ -3,7 +3,9 @@ package com.practice.reverselevel.spring.web;
 import com.practice.reverselevel.spring.config.auth.LoginUser;
 import com.practice.reverselevel.spring.config.auth.dto.SessionUser;
 import com.practice.reverselevel.spring.service.posts.PostsService;
+import com.practice.reverselevel.spring.service.user.UserService;
 import com.practice.reverselevel.spring.web.dto.PostsResponseDto;
+import com.practice.reverselevel.spring.web.dto.UserResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,17 +19,22 @@ import javax.servlet.http.HttpSession;
 public class IndexController {
 
     private final PostsService postsService;
+
     private final HttpSession httpSession;
 
     @GetMapping("/")
     public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
 
+
         if (user != null) {
             model.addAttribute("userName", user.getName());
+            model.addAttribute("userEmail", user.getEmail());
         }
         return "index";
     }
+
+
 
     @GetMapping("/posts/save")
     public String postsSave() {
